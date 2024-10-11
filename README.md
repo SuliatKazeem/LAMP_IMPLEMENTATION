@@ -4,6 +4,7 @@ Prerequisites
 An AWS account with an EC2 instance running Ubuntu.
 A PEM key file for accessing the EC2 instance.
 Basic knowledge of Linux command line and AWS.
+
 Steps to Reproduce
 1. Connect to EC2 Terminal
 First, connect to your EC2 instance via SSH using the PEM key:
@@ -66,7 +67,7 @@ sudo apache2ctl configtest
 
 Create a sample HTML file for the website:
 
-sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
+sudo echo 'Hello LAMP from hostname' $(curl -s http://****/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://****/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
 
 6. Enable PHP on the Website
 Edit the Apache dir.conf file to prioritize PHP over other file types:
@@ -86,9 +87,4 @@ Reload Apache to apply the changes:
 sudo systemctl reload apache2
 
 Conclusion
-You now have a fully functional LAMP stack running on an AWS EC2 instance. This setup includes Apache to serve the website, MySQL for database management, and PHP for dynamic content generation.
-
-Troubleshooting
-If Apache isn’t running, check the service status and logs with sudo systemctl status apache2.
-For MySQL login issues, ensure you have set the correct password and user permissions.
-If the website isn’t accessible, ensure the EC2 security group allows inbound HTTP (port 80) traffic.
+There's now a fully functional LAMP stack running on an AWS EC2 instance. This setup includes Apache to serve the website, MySQL for database management, and PHP for dynamic content generation.
